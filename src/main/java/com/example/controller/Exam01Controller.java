@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,7 +22,8 @@ public class Exam01Controller {
 	}
 	
 	@RequestMapping("/input")
-	public String input(Ex01Form form) {
+	public String input(Ex01Form form, Model model) {
+		model.addAttribute("name", form.getName());
 		System.out.println("入力された値：" + form.getName());
 		return "exam01-result";
 	}
